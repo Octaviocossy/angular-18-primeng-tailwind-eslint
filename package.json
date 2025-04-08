@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.2.0",
+    "@angular-eslint/eslint-plugin": "^19.3.0",
     "@angular-eslint/template-parser": "^19.3.0",
     "@angular/cli": "^18.2.0",
     "@angular/compiler-cli": "^18.2.0",
@@ -44,7 +45,6 @@
     "eslint": "^9.24.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-import-resolver-typescript": "^4.3.2",
-    "eslint-plugin-angular": "^4.1.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.6",
     "prettier": "^3.5.3"
