@@ -1,0 +1,32 @@
+<div class="container mx-auto p-4 max-w-2xl">
+  <p-card header="Todo List">
+    <!-- Add Todo Form -->
+    <div class="mb-6">
+      <form (ngSubmit)="addTodo()" class="flex gap-2">
+        <span class="p-input-icon-left flex-1">
+          <i class="pi pi-plus"></i>
+          <input type="text" pInputText [(ngModel)]="newTodoTitle" name="newTodo" placeholder="Add a new todo..." class="w-full" />
+        </span>
+        <p-button type="submit" icon="pi pi-plus" label="Add" [loading]="false"></p-button>
+      </form>
+    </div>
+
+    <!-- Todo List -->
+    <div class="space-y-2">
+      @for (todo of todoService.getTodos()(); track todo.id) {
+        <div class="flex items-center gap-2 p-3 bg-white rounded-lg shadow-sm border">
+          <p-checkbox [binary]="true" [(ngModel)]="todo.completed" (onChange)="todoService.toggleTodo(todo.id)" [inputId]="'todo-' + todo.id"></p-checkbox>
+          <span [class.line-through]="todo.completed" class="flex-1">
+            {{ todo.title }}
+          </span>
+          <p-button icon="pi pi-trash" severity="danger" text (onClick)="todoService.deleteTodo(todo.id)"></p-button>
+        </div>
+      }
+    </div>
+
+    <div class="mt-6 flex justify-between text-sm">
+      <div class="text-green-600">Completed: {{ todoService.completedTodos().length }}</div>
+      <div class="text-blue-600">Pending: {{ todoService.pendingTodos().length }}</div>
+    </div>
+  </p-card>
+</div>
